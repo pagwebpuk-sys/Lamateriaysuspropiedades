@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estados y Cambios de la Materia - Guía Interactiva</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #333; min-height: 100vh; 
+        }
+        .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
+        header { 
+            text-align: center; background: rgba(255,255,255,0.95); 
+            padding: 30px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            margin-bottom: 30px; 
+        }
+        h1 { color: #4a5568; font-size: 2.5em; margin-bottom: 10px; }
+        nav { 
+            display: flex; justify-content: center; gap: 20px; margin: 20px 0; 
+            flex-wrap: wrap;
+        }
+        nav button { 
+            padding: 12px 24px; background: #48bb78; color: white; 
+            border: none; border-radius: 50px; cursor: pointer; 
+            font-size: 1.1em; transition: all 0.3s; box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        nav button:hover { transform: translateY(-3px); background: #38a169; }
+        nav button.active { background: #ed8936; }
+        section { 
+            display: none; background: rgba(255,255,255,0.95); 
+            padding: 40px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            margin-bottom: 30px; animation: fadeIn 0.5s ease-in;
+        }
+        section.active { display: block; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        .estado-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin: 30px 0; }
+        .estado-card { 
+            background: linear-gradient(145deg, #f7fafc, #edf2f7); 
+            padding: 30px; border-radius: 15px; text-align: center; 
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1); transition: transform 0.3s;
+            border-top: 5px solid;
+        }
+        .estado-card:hover { transform: scale(1.05); }
+        .solido { border-top-color: #3182ce; }
+        .liquido { border-top-color: #38b2ac; }
+        .gas { border-top-color: #ed8936; }
+        .plasma { border-top-color: #d69e2e; }
+        table { width: 100%; border-collapse: collapse; margin: 20px 0; }
+        th, td { padding: 15px; text-align: left; border-bottom: 1px solid #e2e8f0; }
+        th { background: #bee3f8; font-weight: bold; }
+        .cambio-diagrama { text-align: center; font-size: 1.2em; margin: 40px 0; }
+        .flecha { font-size: 2em; color: #48bb78; margin: 0 20px; }
+        .highlight { background: #fef5e7; padding: 20px; border-radius: 10px; border-left: 5px solid #f6ad55; }
+        footer { text-align: center; padding: 20px; color: white; font-size: 0.9em; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🔬 Estados y Cambios de la Materia</h1>
+            <p>Guía Interactiva Profesional • Explora, Aprende y Visualiza</p>
+        </header>
+
+        <nav>
+            <button onclick="showSection('estados')" class="active">🌊 Estados de la Materia</button>
+            <button onclick="showSection('cambios')">🔄 Cambios de la Materia</button>
+            <button onclick="showSection('experimentos')">🧪 Experimentos</button>
+        </nav>
+
+        <!-- SECCIÓN 1: ESTADOS DE LA MATERIA -->
+        <section id="estados" class="active">
+            <h2>🌈 Los 4 Estados Clásicos de la Materia</h2>
+            <div class="estado-grid">
+                <div class="estado-card solido">
+                    <h3>🧊 SÓLIDO</h3>
+                    <p><strong>Forma:</strong> Fija | <strong>Volumen:</strong> Fijo</p>
+                    <p>Partículas muy juntas, vibran en su lugar.</p>
+                    <ul>
+                        <li>Masa: Alta densidad</li>
+                        <li>Ejemplos: Hielo, diamante, metal</li>
+                    </ul>
+                </div>
+                <div class="estado-card liquido">
+                    <h3>💧 LÍQUIDO</h3>
+                    <p><strong>Forma:</strong> Adopta la del recipiente | <strong>Volumen:</strong> Fijo</p>
+                    <p>Partículas deslizan entre sí.</p>
+                    <ul>
+                        <li>Fluye fácilmente</li>
+                        <li>Ejemplos: Agua, mercurio, aceite</li>
+                    </ul>
+                </div>
+                <div class="estado-card gas">
+                    <h3>💨 GAS</h3>
+                    <p><strong>Forma:</strong> Llena todo el espacio | <strong>Volumen:</strong> Variable</p>
+                    <p>Partículas libres y separadas.</p>
+                    <ul>
+                        <li>Se comprime mucho</li>
+                        <li>Ejemplos: Aire, vapor, helio</li>
+                    </ul>
+                </div>
+                <div class="estado-card plasma">
+                    <h3>⚡ PLASMA</h3>
+                    <p><strong>Forma:</strong> Variable | <strong>Volumen:</strong> Variable</p>
+                    <p>Gas ionizado con electrones libres (¡el 99% del universo visible!).</p>
+                    <ul>
+                        <li>Conduce electricidad</li>
+                        <li>Ejemplos: Relámpagos, Sol, pantallas de neón</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="highlight">
+                <h3>📊 Tabla Comparativa</h3>
+                <table>
+                    <tr><th>Propiedad</th><th>Sólido</th><th>Líquido</th><th>Gas</th><th>Plasma</th></tr>
+                    <tr><td>Distancia partículas</td><td>Muy juntas</td><td>Juntas</td><td>Separadas</td><td>Ionizadas</td></tr>
+                    <tr><td>Densidad</td><td>Alta</td><td>Media</td><td>Baja</td><td>Muy baja</td></tr>
+                    <tr><td>Compresibilidad</td><td>Nula</td><td>Baja</td><td>Alta</td><td>Alta</td></tr>
+                </table>
+            </div>
+        </section>
+
+        <!-- SECCIÓN 2: CAMBIOS DE LA MATERIA -->
+        <section id="cambios">
+            <h2>🔄 Cambios de Estado: El Ciclo del Agua</h2>
+            
+            <div class="cambio-diagrama">
+                <div style="display: inline-block; vertical-align: middle;">
+                    <div style="font-size: 3em; margin: 20px;">🧊</div>
+                    <div>SÓLIDO</div>
+                </div>
+                <span class="flecha">⬇️ Calor</span>
+                <div style="display: inline-block; vertical-align: middle;">
+                    <div style="font-size: 3em; margin: 20px;">💧</div>
+                    <div>LÍQUIDO</div>
+                </div>
+                <span class="flecha">⬇️ Calor</span>
+                <div style="display: inline-block; vertical-align: middle;">
+                    <div style="font-size: 3em; margin: 20px;">💨</div>
+                    <div>GAS</div>
+                </div>
+                <br><br>
+                <span class="flecha">⬆️ Frío</span>
+                <span class="flecha">⬆️ Frío</span>
+            </div>
+
+            <h3>🎯 Tipos de Cambios</h3>
+            <table>
+                <tr><th>Cambio</th><th>De → A</th><th>Agente</th><th>Ejemplo</th><th>Reversible</th></tr>
+                <tr><td>Fusión</td><td>Sólido → Líquido</td><td>Calor</td><td>Hielo derrite (0°C)</td><td>Sí</td></tr>
+                <tr><td>Solidificación</td><td>Líquido → Sólido</td><td>Frío</td><td>Agua congela</td><td>Sí</td></tr>
+                <tr><td>Vaporización</td><td>Líquido → Gas</td><td>Calor</td><td>Agua hierve (100°C)</td><td>Sí</td></tr>
+                <tr><td>Condensación</td><td>Gas → Líquido</td><td>Frío</td><td>Vapor en espejo</td><td>Sí</td></tr>
+                <tr><td>Sublimación</td><td>Sólido → Gas</td><td>Calor</td><td>Hielo seco</td><td>Sí</td></tr>
+                <tr><td>Deposición</td><td>Gas → Sólido</td><td>Frío</td><td>Nieve de nubes</td><td>Sí</td></tr>
+            </table>
+
+            <div class="highlight">
+                <h3>⚠️ Cambios FÍSICOS vs QUÍMICOS</h3>
+                <ul>
+                    <li><strong>Físico:</strong> Solo cambia forma/estado (reversible, misma sustancia).</li>
+                    <li><strong>Químico:</strong> Nueva sustancia (irreversible, reacciones).</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- SECCIÓN 3: EXPERIMENTOS -->
+        <section id="experimentos">
+            <h2>🧪 Experimentos Fáciles en Casa</h2>
+            <div class="estado-grid">
+                <div class="estado-card">
+                    <h3>1. Hielo Seco (Sublimación)</h3>
+                    <p>Coloca hielo seco en agua tibia → burbujas de CO₂ gaseoso.</p>
+                </div>
+                <div class="estado-card">
+                    <h3>2. Globo con Aire Caliente</h3>
+                    <p>Calienta aire → expande y sube (gas menos denso).</p>
+                </div>
+                <div class="estado-card">
+                    <h3>3. Agua en Espejo</h3>
+                    <p>Respira en espejo frío → condensación instantánea.</p>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            <p>🌟 Creada con ❤️ por Blackbox AI | Educación Interactiva 2024</p>
+        </footer>
+    </div>
+
+    <script>
+        function showSection(id) {
+            // Ocultar todas las secciones
+            document.querySelectorAll('section').forEach(s => s.classList.remove('active'));
+            document.querySelectorAll('nav button').forEach(b => b.classList.remove('active'));
+            
+            // Mostrar sección seleccionada
+            document.getElementById(id).classList.add('active');
+            event.target.classList.add('active');
+        }
+    </script>
+</body>
+</html>
